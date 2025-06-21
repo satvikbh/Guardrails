@@ -1,0 +1,47 @@
+# Define user expressions for termination
+define user express termination
+  "bye"
+  "end"
+
+# Define user expressions for criticizing individuals
+define user express criticism
+  "is bad"
+  "is terrible"
+  "hate"
+  "stupid"
+  "idiot"
+  "loser"
+
+# Define user expressions for PIL-related content
+define user express pil
+  "public interest litigation"
+  "PIL"
+  "public interest lawsuit"
+
+# Define bot response for toxic input
+define bot respond to toxic
+  "I'm sorry, I can't respond to that request as it appears inappropriate."
+
+# Define bot response for criticism
+define bot respond to criticism
+  "I'm sorry, criticism of individuals is not allowed. Please rephrase your request."
+
+# Define bot response for PIL-related content
+define bot respond to pil
+  "I'm sorry, that request related to Public Interest Litigation (PIL) is not allowed. Please try something else."
+
+# Define bot action to pass non-harmful input
+define bot pass_input
+  $user_message
+
+# Define flow for checking harmful/toxic input
+define flow check_toxicity
+  user express anything
+  if $is_jailbreak
+    bot respond to toxic
+  else if $user_message contains user express criticism
+    bot respond to criticism
+  else if $user_message contains user express pil
+    bot respond to pil
+  else
+    bot pass_input

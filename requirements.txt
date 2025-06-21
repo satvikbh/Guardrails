@@ -1,0 +1,5 @@
+fastapi
+uvicorn
+nemoguardrails
+google-generativeai
+requests
