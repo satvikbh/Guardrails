@@ -3,11 +3,7 @@ import os
 
 # Set your Azure OpenAI credentials
 client = openai.AzureOpenAI(
-    api_key="FZspLxVIufHClmDpUeKn0Cgq0yOEHZugpQ7stmobByi34KYHhcpqJQQJ99BDACHYHv6XJ3w3AAAAACOGiXeP",
-    api_version="2025-01-01-preview",
-    azure_endpoint="https://dqazureaifound6652576421.cognitiveservices.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2025-01-01-preview"
-)
-
+    
 deployment_name = "gpt-4o"
 
 def test_connection():
